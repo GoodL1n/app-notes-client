@@ -1,0 +1,30 @@
+.note {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    max-height: 40vh;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.note:hover {
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5)
+}
+
+.note-title {
+    font-weight: 500;
+    font-size: large;
+}
+
+.note-body {
+    display: flex
+}
+
+.note-content{
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

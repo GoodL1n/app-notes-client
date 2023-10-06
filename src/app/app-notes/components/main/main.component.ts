@@ -10,6 +10,7 @@ import { Note } from '../../models/note.model';
 export class MainComponent implements OnInit{
 
   notes: Note[] = []
+  isNewNoteOpen: boolean = false;
 
   constructor(private storageService: StorageDataService){}
 

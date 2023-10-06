@@ -1,6 +1,17 @@
-.notes{
+.main-page-header {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px;
+}
+
+.buttons-action{
+    display: flex;
+    justify-content: space-evenly;
+    width: 20vw;
+}
+
+.notes {
+    display: flex;
+    flex-flow: row wrap;
     justify-content: center;
 }

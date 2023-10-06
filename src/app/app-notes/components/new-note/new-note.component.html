@@ -1,0 +1,8 @@
+<div class="new-note">
+    <form class="form-new-note" [formGroup]="formNewNote" (ngSubmit)="submit()">
+        <input class="input-title" type="text" placeholder="Заголовок заметки" formControlName="title" />
+        <textarea class="textarea-content" type="text" placeholder="Содержимое заметки" cdkTextareaAutosize
+            formControlName="content"></textarea>
+        <button class = "button-submit" mat-raised-button color="primary" type="submit">Сохранить</button>
+    </form>
+</div>

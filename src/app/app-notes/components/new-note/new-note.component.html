@@ -1,0 +1,14 @@
+<div class="new-note">
+    <form class="form-new-note" [formGroup]="formNewNote" (ngSubmit)="submit()">
+        <input class="input-title" type="text" placeholder="Заголовок заметки" formControlName="title" />
+        <textarea class="textarea-content" type="text" placeholder="Содержимое заметки" cdkTextareaAutosize
+            formControlName="content"></textarea>
+        <mat-form-field>
+            <mat-label>Теги</mat-label>
+            <mat-select formControlName="tags" multiple>
+                <mat-option *ngFor="let tag of tags" [value]="tag">{{tag.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button class="custom-button" [disabled]="formNewNote.invalid" type="submit">Сохранить</button>
+    </form>
+</div>

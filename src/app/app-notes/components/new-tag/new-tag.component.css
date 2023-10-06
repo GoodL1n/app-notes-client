@@ -1,0 +1,33 @@
+input:focus{
+    outline: none;
+}
+
+.new-tag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 25px;
+}
+
+.form-new-tag{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.input-name{
+    display: flex;
+    width: 90%;
+    border: 0;
+    padding: 5px;
+    margin: 5px;
+}
+
+.custom-button{
+    border: 0;
+    background: white;
+    cursor: pointer;
+}

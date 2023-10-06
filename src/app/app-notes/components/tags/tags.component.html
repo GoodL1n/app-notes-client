@@ -1,0 +1,14 @@
+<div class="tags">
+    <div class="new-tag" *ngIf="isNewTagOpen">
+        <app-new-tag (isNewTagOpen)="isNewTagOpen = !isNewTagOpen"></app-new-tag>
+    </div>
+    <div class="list-tags">
+        <app-tag *ngFor="let tag of tags; let i = index" [tag]="tag" [index]="i"></app-tag>
+    </div>
+    <div class="add-tag-button">
+        <button class="custom-button" (click)="isNewTagOpen = !isNewTagOpen">
+            <mat-icon>add</mat-icon>
+            <span>Новый тег</span>
+        </button>
+    </div>
+</div>

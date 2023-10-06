@@ -1,0 +1,9 @@
+<div class="tag" (mouseenter)="isOpportuniteToDelete = true" (mouseleave)="isOpportuniteToDelete = false">
+    <div class="tag-body">
+        <mat-icon>tag</mat-icon>
+        <span class="tag-name">{{tag.name}}</span>
+    </div>
+    <button class="custom-button" *ngIf="isOpportuniteToDelete" (click)="deleteTag()">
+        <mat-icon>delete</mat-icon>
+    </button>
+</div>

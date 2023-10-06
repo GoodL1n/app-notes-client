@@ -1,0 +1,14 @@
+<div class="notes">
+    <div class="new-note" *ngIf="isNewNoteOpen">
+        <app-new-note (isNewNoteOpen)="isNewNoteOpen = !isNewNoteOpen"></app-new-note>
+    </div>
+    <div class="list-notes">
+        <app-note *ngFor="let note of notes; let i = index" [note]="note" [index]="i"></app-note>
+    </div>
+    <div class="add-note-button">
+        <button class="custom-button" (click)="isNewNoteOpen = !isNewNoteOpen">
+            <mat-icon>add</mat-icon>
+            <span>Новая заметка</span>
+        </button>
+    </div>
+</div>

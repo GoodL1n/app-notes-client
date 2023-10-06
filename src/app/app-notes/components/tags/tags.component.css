@@ -1,0 +1,30 @@
+.tags{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list-tags{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 60%;
+}
+
+.add-tag-button{
+    position: fixed;
+    top: 90vh;
+    left: 45vw;
+}
+
+.custom-button {
+    display: flex;
+    background: rgb(249, 245, 171);
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 25px;
+    align-items: center;
+    padding: 5px;
+    font-weight: 600;
+    font-size: medium;
+}

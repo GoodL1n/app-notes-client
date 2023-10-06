@@ -1,0 +1,20 @@
+.tag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 25px;
+}
+
+.tag-body{
+    display: flex;
+    align-items: center;
+}
+
+.custom-button{
+    border: 0;
+    background: white;
+    cursor: pointer;
+}

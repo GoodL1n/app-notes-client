@@ -1,10 +1,7 @@
-export class Note{
+import { Tag } from "./tag.model";
 
+export interface Note{
     title: string;
     content: string;
-    
-    constructor(title: string, content: string){
-        this.title = title;
-        this.content = content;
-    }
+    tags?: Tag[];
 }

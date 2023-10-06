@@ -1,0 +1,8 @@
+<div class = "new-tag">
+    <form class="form-new-tag" [formGroup]="formNewTag" (ngSubmit)="submit()">
+        <input class="input-name" type="text" placeholder="Наименование тега" formControlName="name" />
+        <button class="custom-button" [disabled]="formNewTag.invalid" type="submit" matTooltip="Сохранить">
+            <mat-icon>check</mat-icon>
+        </button>
+    </form>
+</div>

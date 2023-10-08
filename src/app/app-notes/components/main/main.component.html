@@ -1,0 +1,23 @@
+<div class="main-page">
+    <div class="main-page-header">
+        <div class="buttons-action">
+            <button mat-mini-fab color="primary" matTooltip="Напоминания">
+                <mat-icon>alarm</mat-icon>
+            </button>
+            <button mat-mini-fab color="primary" matTooltip="Создать новую заметку" (click)="isNewNoteOpen = !isNewNoteOpen">
+                <mat-icon>add</mat-icon>
+            </button>
+            <button mat-mini-fab color="primary" matTooltip="Теги">
+                <mat-icon>tag</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="main-page-body">
+        <div class = "new-note" *ngIf="isNewNoteOpen">
+            <app-new-note (isNewNoteOpen)="isNewNoteOpen = !isNewNoteOpen"></app-new-note>
+        </div>
+        <div class="notes">
+            <app-note *ngFor="let note of notes" [note]="note"></app-note>
+        </div>
+    </div>
+</div>

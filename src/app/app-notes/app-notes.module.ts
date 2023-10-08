@@ -6,18 +6,12 @@ import { NoteComponent } from './components/note/note.component';
 import { MaterialUiModule } from '../material-ui/material-ui.module';
 import { NewNoteComponent } from './components/new-note/new-note.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { NotesComponent } from './components/notes/notes.component';
-import { TagsComponent } from './components/tags/tags.component';
-import { RemindersComponent } from './components/reminders/reminders.component';
-import { MainComponent } from './components/main/main.component';
-import { TagComponent } from './components/tag/tag.component';
-import { NewTagComponent } from './components/new-tag/new-tag.component';
 
 
 @NgModule({
   declarations: [
     NoteComponent,
+<<<<<<< HEAD
     NewNoteComponent,
     NavigationComponent,
     NotesComponent,
@@ -26,6 +20,10 @@ import { NewTagComponent } from './components/new-tag/new-tag.component';
     MainComponent,
     TagComponent,
     NewTagComponent
+=======
+    MainComponent,
+    NewNoteComponent
+>>>>>>> 8519451dd877a92084c37010e48b1bb68e59de32
   ],
   imports: [
     CommonModule,
@@ -33,9 +31,12 @@ import { NewTagComponent } from './components/new-tag/new-tag.component';
     MaterialUiModule,
     FormsModule,
     ReactiveFormsModule
+<<<<<<< HEAD
   ],
   exports: [
     NavigationComponent
+=======
+>>>>>>> 8519451dd877a92084c37010e48b1bb68e59de32
   ]
 })
 export class AppNotesModule { }

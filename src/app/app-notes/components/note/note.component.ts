@@ -23,18 +23,27 @@ export class NoteComponent implements OnInit {
     private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.formEditNote = this.createForm();
     this.tags = this.storageService.getTags()
+  }
+
+  editOpen(){
+    this.formEditNote = this.createForm();
   }
 
   createForm(): FormGroup {
     return this.formBuilder.group({
       title: this.note.title,
       content: this.note.content,
-      tags: this.formBuilder.array(this.note.tags ?  this.note.tags : [])
+      tags: this.note.tags
     })
   }
 
+  compareTag(tag1: Tag, tag2: Tag): boolean {
+    console.log('1', tag1)
+    console.log('2', tag2)
+    return tag1 && tag2 ? tag1.name === tag2.name : tag1 === tag2;
+  }
+ 
   submit() {
     this.note = this.formEditNote.value
     this.isNoteSelect = false;

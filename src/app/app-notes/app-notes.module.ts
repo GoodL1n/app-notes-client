@@ -6,24 +6,26 @@ import { NoteComponent } from './components/note/note.component';
 import { MaterialUiModule } from '../material-ui/material-ui.module';
 import { NewNoteComponent } from './components/new-note/new-note.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { NewTagComponent } from './components/new-tag/new-tag.component';
+import { NotesComponent } from './components/notes/notes.component';
+import { RemindersComponent } from './components/reminders/reminders.component';
+import { TagComponent } from './components/tag/tag.component';
+import { TagsComponent } from './components/tags/tags.component';
+import { FormatDatePipe } from './pipes/format-date.pipe';
 
 
 @NgModule({
   declarations: [
     NoteComponent,
-<<<<<<< HEAD
     NewNoteComponent,
     NavigationComponent,
     NotesComponent,
     TagsComponent,
     RemindersComponent,
-    MainComponent,
     TagComponent,
-    NewTagComponent
-=======
-    MainComponent,
-    NewNoteComponent
->>>>>>> 8519451dd877a92084c37010e48b1bb68e59de32
+    NewTagComponent,
+    FormatDatePipe,
   ],
   imports: [
     CommonModule,
@@ -31,12 +33,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MaterialUiModule,
     FormsModule,
     ReactiveFormsModule
-<<<<<<< HEAD
   ],
   exports: [
     NavigationComponent
-=======
->>>>>>> 8519451dd877a92084c37010e48b1bb68e59de32
   ]
 })
 export class AppNotesModule { }

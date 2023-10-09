@@ -1,9 +1,17 @@
-<div class="tag" (mouseenter)="isOpportuniteToDelete = true" (mouseleave)="isOpportuniteToDelete = false">
-    <div class="tag-body">
-        <mat-icon>tag</mat-icon>
-        <span class="tag-name">{{tag.name}}</span>
+<div class="tag">
+    <div class = "tag-read" *ngIf="!isTagSelect" (click)="isTagSelect = !isTagSelect">
+        <div class="tag-body">
+            <mat-icon>tag</mat-icon>
+            <span class="tag-name">{{tag.name}}</span>
+        </div>
     </div>
-    <button class="custom-button" *ngIf="isOpportuniteToDelete" (click)="deleteTag()">
-        <mat-icon>delete</mat-icon>
-    </button>
+    <form class = "tag-edit-form" [formGroup]="formTagEdit" (ngSubmit)="submit()" *ngIf="isTagSelect">
+        <input class="input-name" type="text" placeholder="Наименование" formControlName="name" />
+        <button class="custom-button" type="submit">
+            <mat-icon>done</mat-icon>
+        </button>
+        <button class="custom-button" (click)="deleteTag()">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </form>
 </div>

@@ -36,7 +36,8 @@ textarea:focus {
 }
 
 .note-body {
-    display: flex
+    display: flex;
+    flex-direction: column;
 }
 
 .note-content {
@@ -54,6 +55,18 @@ textarea:focus {
 .tag {
     display: flex;
     background: #d2f2b3;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 25px;
+    align-items: center;
+    padding: 5px;
+    margin: 0 5px 5px 0;
+}
+
+.reminder{
+    display: flex;
+    width: 80%;
+    background: #91c2f4;
     cursor: pointer;
     border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 25px;

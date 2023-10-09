@@ -1,15 +1,21 @@
 <div class="note">
-    <div class="note-read" *ngIf="!isNoteSelect" (click)="isNoteSelect = !isNoteSelect">
+    <div class="note-read" *ngIf="!isNoteSelect" (click)="editOpen()">
         <div class="note-header">
             <span class="note-title">{{note.title}}</span>
         </div>
         <div class="note-body">
             <p class="note-content">{{note.content}}</p>
-        </div>
-        <div class="note-tags">
-            <div class="tag" *ngFor="let tag of note.tags">
-                <mat-icon>tag</mat-icon>
-                <span>{{tag.name}}</span>
+            <div class="note-tags">
+                <div class="tag" *ngFor="let tag of note.tags">
+                    <mat-icon>tag</mat-icon>
+                    <span>{{tag.name}}</span>
+                </div>
+            </div>
+            <div class="note-reminer" *ngIf="note.reminder">
+                <div class="reminder">
+                    <mat-icon>schedule</mat-icon>
+                    <span>{{note.reminder.time | formatDate}}</span>
+                </div>
             </div>
         </div>
     </div>
@@ -19,7 +25,7 @@
             formControlName="content"></textarea>
         <mat-form-field>
             <mat-label>Теги</mat-label>
-            <mat-select formControlName="tags" multiple>
+            <mat-select formControlName="tags" [compareWith]="compareTag" [multiple]="true">
                 <mat-option *ngFor="let tag of tags" [value]="tag">{{tag.name}}</mat-option>
             </mat-select>
         </mat-form-field>

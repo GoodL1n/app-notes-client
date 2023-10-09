@@ -1,12 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-<<<<<<< HEAD
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StorageDataService } from '../../services/storage-data.service';
 import { Tag } from '../../models/tag.model';
-=======
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { StorageDataService } from '../../services/storage-data.service';
->>>>>>> 8519451dd877a92084c37010e48b1bb68e59de32
 
 @Component({
   selector: 'app-new-note',
@@ -17,6 +12,8 @@ export class NewNoteComponent implements OnInit {
 
   @Output() isNewNoteOpen = new EventEmitter<boolean>()
 
+  tags: Tag[] = []
+
   formNewNote!: FormGroup
 
   constructor(private formBuilder: FormBuilder,
@@ -24,20 +21,24 @@ export class NewNoteComponent implements OnInit {
 
   ngOnInit(): void {
     this.formNewNote = this.createForm()
+    this.tags = this.storageService.getTags()
   }
 
   createForm(): FormGroup {
     return this.formBuilder.group({
-      title: '',
-      content: ''
+      title: ['', Validators.required],
+      content: ['', Validators.required],
+      tags: [''],
+      date: ['']
     })
   }
 
   submit(): void {
     this.storageService.setNote({
       title: this.formNewNote.value.title,
-      content: this.formNewNote.value.content
+      content: this.formNewNote.value.content,
+      tags: this.formNewNote.value.tags,
+      reminder: { time: this.formNewNote.value.date }
     })
-    this.isNewNoteOpen.emit()
   }
 }

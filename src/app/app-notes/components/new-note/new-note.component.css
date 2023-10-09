@@ -3,6 +3,17 @@ textarea:focus {
     outline: none;
 }
 
+.custom-button {
+    display: flex;
+    background: white;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 25px;
+    align-items: center;
+    padding: 5px;
+    font-weight: 600;
+}
+
 .new-note{
     display: flex;
     justify-content: center;
@@ -36,11 +47,4 @@ textarea:focus {
     border: 0;
     padding: 5px;
     margin: 5px;
-<<<<<<< HEAD
-=======
-}
-
-.button-submit{
-    display: flex;
->>>>>>> 8519451dd877a92084c37010e48b1bb68e59de32
 }

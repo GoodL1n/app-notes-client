@@ -19,7 +19,7 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     width: 20vw;
-    max-height: 40vh;
+    max-height: 50vh;
     border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 15px;
     margin: 10px;
@@ -91,8 +91,14 @@ textarea:focus {
 
 .textarea-content {
     display: flex;
-    max-height: 26vh;
-    width: 90%;
+    max-height: 22vh;
+    width: 100%;
     border: 0;
     padding: 5px;
+}
+
+.buttons{
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
 }

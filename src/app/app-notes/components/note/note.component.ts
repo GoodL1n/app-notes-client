@@ -26,26 +26,36 @@ export class NoteComponent implements OnInit {
     this.tags = this.storageService.getTags()
   }
 
-  editOpen(){
+  editOpen() {
+    console.log(this.note)
     this.formEditNote = this.createForm();
+    this.isNoteSelect = true
   }
 
   createForm(): FormGroup {
     return this.formBuilder.group({
       title: this.note.title,
       content: this.note.content,
-      tags: this.note.tags
+      tags: [this.note.tags],
+      date: this.note.reminder ? this.note.reminder.time.toISOString().slice(0, 16) : ''
     })
   }
 
   compareTag(tag1: Tag, tag2: Tag): boolean {
-    console.log('1', tag1)
-    console.log('2', tag2)
     return tag1 && tag2 ? tag1.name === tag2.name : tag1 === tag2;
   }
- 
+
   submit() {
-    this.note = this.formEditNote.value
+    this.note = {
+      title: this.formEditNote.value.title,
+      content: this.formEditNote.value.content,
+      tags: this.formEditNote.value.tags,
+      reminder: this.formEditNote.value.date ? { time: new Date(this.formEditNote.value.date) } : undefined
+    }
     this.isNoteSelect = false;
+  }
+
+  deleteNote(){
+    this.storageService.deleteNote(this.index)
   }
 }

@@ -38,7 +38,8 @@ export class NewNoteComponent implements OnInit {
       title: this.formNewNote.value.title,
       content: this.formNewNote.value.content,
       tags: this.formNewNote.value.tags,
-      reminder: { time: this.formNewNote.value.date }
+      reminder: this.formNewNote.value.date ? { time: new Date(this.formNewNote.value.date) } : undefined
     })
+    this.isNewNoteOpen.emit()
   }
 }

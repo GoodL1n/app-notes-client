@@ -29,6 +29,13 @@
                 <mat-option *ngFor="let tag of tags" [value]="tag">{{tag.name}}</mat-option>
             </mat-select>
         </mat-form-field>
-        <button class="custom-button" type="submit">Сохранить</button>
+        <mat-form-field>
+            <mat-label>Напоминание</mat-label>
+            <input matInput type="datetime-local" formControlName="date">
+        </mat-form-field>
+        <div class = "buttons">
+            <button class="custom-button" type="submit">Сохранить</button>
+            <button class="custom-button" (click)="deleteNote()">Удалить</button>
+        </div>
     </form>
 </div>

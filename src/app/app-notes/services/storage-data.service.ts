@@ -44,10 +44,18 @@ export class StorageDataService {
     return this.notes;
   }
 
+  getNotesWithReminder(): Note[]{
+    return this.notes.filter(note => note.reminder)
+  }
+
   setNote(note: Note): Note {
     this.notes.unshift(note)
     const index = this.notes.findIndex(note => note.title === note.title);
     return this.notes[index]
+  }
+
+  updateNote(index: number, note: Note): void{
+    this.notes[index] = note
   }
 
   deleteNote(index: number): void {

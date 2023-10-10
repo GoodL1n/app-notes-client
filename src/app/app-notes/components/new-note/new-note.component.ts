@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { StorageDataService } from '../../services/storage-data.service';
 import { Tag } from '../../models/tag.model';
 
@@ -16,6 +16,8 @@ export class NewNoteComponent implements OnInit {
 
   formNewNote!: FormGroup
 
+  isSetReminder: boolean = false;
+
   constructor(private formBuilder: FormBuilder,
     private storageService: StorageDataService) { }
 
@@ -28,9 +30,18 @@ export class NewNoteComponent implements OnInit {
     return this.formBuilder.group({
       title: ['', Validators.required],
       content: ['', Validators.required],
-      tags: [''],
-      date: ['']
+      tags: ['']
     })
+  }
+
+  setReminder(){
+    this.formNewNote.addControl('date', new FormControl(''))
+    this.isSetReminder = true
+  }
+
+  deleteReminder() {
+    this.formNewNote.value.date = ''
+    this.isSetReminder = false
   }
 
   submit(): void {

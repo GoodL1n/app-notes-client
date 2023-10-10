@@ -29,11 +29,21 @@
                 <mat-option *ngFor="let tag of tags" [value]="tag">{{tag.name}}</mat-option>
             </mat-select>
         </mat-form-field>
-        <mat-form-field>
-            <mat-label>Напоминание</mat-label>
-            <input matInput type="datetime-local" formControlName="date">
-        </mat-form-field>
-        <div class = "buttons">
+        <button class="custom-button" (click)="setReminder()" *ngIf="!isSetReminder">
+            <mat-icon>add</mat-icon>
+            <span>Создать напоминание</span>
+        </button>
+        <div class="create-reminder" *ngIf="isSetReminder">
+            <mat-form-field>
+                <mat-label>Напоминание</mat-label>
+                <input matInput type="datetime-local" formControlName="date">
+            </mat-form-field>
+            <button class="custom-button" (click)="deleteReminder()" matTooltip="Удалить напоминание"
+                style="position: absolute;top: 1.5vh;right: 0.5vw;">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+        <div class="buttons">
             <button class="custom-button" type="submit">Сохранить</button>
             <button class="custom-button" (click)="deleteNote()">Удалить</button>
         </div>

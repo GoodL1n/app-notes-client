@@ -11,7 +11,7 @@ textarea:focus {
     border-radius: 25px;
     align-items: center;
     padding: 5px;
-    margin: px 5px 0 5px;
+    margin: 5px 5px 0 5px;
     font-weight: 600;
 }
 
@@ -19,7 +19,7 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     width: 20vw;
-    max-height: 50vh;
+    max-height: 52vh;
     border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 15px;
     margin: 10px;
@@ -63,7 +63,7 @@ textarea:focus {
     margin: 0 5px 5px 0;
 }
 
-.reminder{
+.reminder {
     display: flex;
     width: 80%;
     background: #91c2f4;
@@ -97,7 +97,12 @@ textarea:focus {
     padding: 5px;
 }
 
-.buttons{
+.create-reminder {
+    display: flex;
+    position: relative;
+}
+
+.buttons {
     width: 80%;
     display: flex;
     justify-content: space-evenly;

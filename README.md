@@ -1,1 +1,1 @@
-# AppNotesClient
+# AppNotesClient - приложение заметок

@@ -48,3 +48,8 @@ textarea:focus {
     padding: 5px;
     margin: 5px;
 }
+
+.create-reminder {
+    display: flex;
+    position: relative;
+}

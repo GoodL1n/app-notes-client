@@ -1,1 +1,5 @@
-<p>reminders works!</p>
+<div class="notes-reminders">
+    <div class="list-notes">
+        <app-note *ngFor="let note of notes; let i = index" [note]="note" [index]="i"></app-note>
+    </div>
+</div>

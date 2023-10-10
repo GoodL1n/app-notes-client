@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Note } from '../../models/note.model';
 import { StorageDataService } from '../../services/storage-data.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Tag } from '../../models/tag.model';
 
 @Component({
@@ -17,6 +17,7 @@ export class NoteComponent implements OnInit {
   tags: Tag[] = []
 
   isNoteSelect: boolean = false;
+  isSetReminder: boolean = false;
   formEditNote!: FormGroup;
 
   constructor(private storageService: StorageDataService,
@@ -27,18 +28,31 @@ export class NoteComponent implements OnInit {
   }
 
   editOpen() {
-    console.log(this.note)
     this.formEditNote = this.createForm();
     this.isNoteSelect = true
   }
 
   createForm(): FormGroup {
-    return this.formBuilder.group({
-      title: this.note.title,
-      content: this.note.content,
-      tags: [this.note.tags],
-      date: this.note.reminder ? this.note.reminder.time.toISOString().slice(0, 16) : ''
-    })
+    if (this.note.reminder) {
+      this.isSetReminder = true
+      return this.formBuilder.group({
+        title: this.note.title,
+        content: this.note.content,
+        tags: [this.note.tags],
+        date: this.note.reminder.time.toISOString().slice(0, 16)
+      })
+    } else {
+      return this.formBuilder.group({
+        title: this.note.title,
+        content: this.note.content,
+        tags: [this.note.tags],
+      })
+    }
+  }
+
+  setReminder(){
+    this.formEditNote.addControl('date', new FormControl(''))
+    this.isSetReminder = true
   }
 
   compareTag(tag1: Tag, tag2: Tag): boolean {
@@ -46,16 +60,23 @@ export class NoteComponent implements OnInit {
   }
 
   submit() {
-    this.note = {
+    const newNote = {
       title: this.formEditNote.value.title,
       content: this.formEditNote.value.content,
       tags: this.formEditNote.value.tags,
       reminder: this.formEditNote.value.date ? { time: new Date(this.formEditNote.value.date) } : undefined
     }
+    this.storageService.updateNote(this.index, newNote)
     this.isNoteSelect = false;
+    this.isSetReminder = false;
   }
 
-  deleteNote(){
+  deleteReminder() {
+    this.formEditNote.value.date = ''
+    this.isSetReminder = false
+  }
+
+  deleteNote() {
     this.storageService.deleteNote(this.index)
   }
 }
